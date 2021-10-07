@@ -1,8 +1,8 @@
 import random
-imported_list = open("../../Desktop/netAcad/word_list.txt")
+imported_list = open("word_list.txt")
 list_of_words = []
 hidden_word = []
-wrong_letters = []
+# wrong_letters = []
 for word in imported_list:
     list_of_words += word.split()
 word_to_guess = list_of_words[random.randint(0,len(list_of_words))].upper()
@@ -18,10 +18,10 @@ print(
     """)
 
 while player_attempt > 0 and count != len(word_to_guess):
-    print("\nWrong letters",wrong_letters)
+    # print("\nWrong letters",wrong_letters)
     print("Word to guess", " - ", "You have", player_attempt, "attempts")
     print(hidden_word)
-    player_guess = (input("\nHave a go: ")).upper()
+    player_guess = (input("\nPlease enter your next guess: ")).upper()
     if player_guess.isalpha():
         if len(player_guess) != 1:
             print("\nPlease enter only one character!")
@@ -33,23 +33,24 @@ while player_attempt > 0 and count != len(word_to_guess):
                     hidden_word[chr] = word_to_guess[chr].upper()
                     count += 1
         else:
-            print("\nWrong")
+            print("\n           Wrong")
             player_attempt -= 1
-            wrong_letters.append(player_guess)
+            # wrong_letters.append(player_guess)
     else:
         print("\nTry again with a valid letter!")
 
 if count == len(word_to_guess):
     print(
         """
-        +===============================================+
-        | Well done you have guess the word correctly!! |
-        +===============================================+
+        +===========================+
+        | Congratulations you win!! |
+        +===========================+
         """)
 else:
     print(
         """
-        +================================+
-        |           GAME OVER            |
-        +================================+
+        +============================+
+        |          You lose          |
+        +============================+
         """)
+    print("The hidden word was:", word_to_guess)
