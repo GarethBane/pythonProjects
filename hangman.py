@@ -23,7 +23,6 @@ print(
 # The game will keep playing. One of Two conditions must me met to end this loop, Player has guess all the correct character, count goes up with each correct choice,
 # or player runs out of attempts, a player will lose an attempt with each incorrect choice.
 while player_attempt > 0 and count != len(word_to_guess):
-    print(word_to_guess)
     print("Word to guess", " - ", "You have", player_attempt, "attempts") # Indicates how many attempts the player has left
     print(" ".join(hidden_word)) # Will convert and display the hidden_word list as a string with any characters that have been correctly guessed
     player_guess = (input("\nPlease enter your next guess: ")).upper()# Prompts the player to enter a character, the input is converted to upper case to ensure correct comparison later on
